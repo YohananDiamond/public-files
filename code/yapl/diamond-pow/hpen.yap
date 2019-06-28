@@ -1,5 +1,5 @@
 # Hologram Pen (hpen)
-# It can be transformed into multiple things, for example, a sword or a blaster wand, or just be used for 
+# It can be transformed into multiple things, for example, a sword or a blaster wand, or just be used for drawing.
 
 init() {
 	print('### Hologram Pen System started.')
