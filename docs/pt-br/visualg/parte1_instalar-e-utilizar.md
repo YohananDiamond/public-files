@@ -30,5 +30,5 @@ Para criar um arquivo novo sem ter que abrir o VisuAlg novamente, utilize o bot�
 
 Para salvar um arquivo, utilize:<br>
 - Barra de Ferramentas: ``novo``<br>
-![Imagem: Barra de Ferramentas - Salvar](img/parte1/toolbar_salvar.PNG)
+![Imagem: Barra de Ferramentas - Salvar](img/p1-i5.PNG)
 - Barra de Menu: ``Arquivo > Salvar`` ou ``Arquivo > Salvar Como`` (a diferença será explicada um pouco mais à frente.)
