@@ -8,11 +8,11 @@ O manual oficial da versão 2 do VisuAlg está disponível [no site da UFSC](htt
 
 Ao abrir o **VisuAlg 2.5**, nos deparamos com uma tela similar a essa:
 
-![Imagem: Tela Inicial do VisuAlg](img/p0-telainicial.png)
+![Imagem: Tela Inicial do VisuAlg](img/p0-telainicial.PNG)
 
 Antes de tudo, deve-se saber como *criar, salvar e abrir arquivos*. Trabalharemos com esta parte da barra de ferramentas (localizada no topo):
 
-![Imagem: Barra de Ferramentas - Novo, Abrir e Salvar](img/p1-i1.png)
+![Imagem: Barra de Ferramentas - Novo, Abrir e Salvar](img/p1-i1.PNG)
 
 ## Criando um Arquivo
 
@@ -22,13 +22,13 @@ Ao abrir o VisuAlg, um arquivo novo já é criado, com o código inicial.
 
 Para criar um arquivo novo sem ter que abrir o VisuAlg novamente, utilize o botão ``novo`` na barra de ferramentas ou clique na barra de menu ``Arquivo > Novo``. Você pode também utilizar a combinação de teclas ``Ctrl + N``.
 
-![Imagem: Barra de Ferramentas - Novo](img/p1-i3.png)
+![Imagem: Barra de Ferramentas - Novo](img/p1-i3.PNG)
 
-![Imagem: Barra de Menu "Arquivo" - Novo](img/p1-i4.png)
+![Imagem: Barra de Menu "Arquivo" - Novo](img/p1-i4.PNG)
 
 ## Salvando um Arquivo
 
 Para salvar um arquivo, utilize:<br>
 - Barra de Ferramentas: ``novo``<br>
-![Imagem: Barra de Ferramentas - Salvar](img/parte1/toolbar_salvar.png)
+![Imagem: Barra de Ferramentas - Salvar](img/parte1/toolbar_salvar.PNG)
 - Barra de Menu: ``Arquivo > Salvar`` ou ``Arquivo > Salvar Como`` (a diferença será explicada um pouco mais à frente.)
