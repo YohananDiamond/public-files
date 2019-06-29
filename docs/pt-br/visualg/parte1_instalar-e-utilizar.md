@@ -22,9 +22,7 @@ Ao abrir o VisuAlg, um arquivo novo já é criado, com o código inicial.
 
 Para criar um arquivo novo sem ter que abrir o VisuAlg novamente, utilize o botão ``novo`` na barra de ferramentas ou clique na barra de menu ``Arquivo > Novo``. Você pode também utilizar a combinação de teclas ``Ctrl + N``.
 
-![Imagem: Barra de Ferramentas - Novo](img/p1-i3.PNG)
-
-![Imagem: Barra de Menu "Arquivo" - Novo](img/p1-i4.PNG)
+![Imagem: Barra de Ferramentas - Novo](img/p1-i3.PNG) ou ![Imagem: Barra de Menu "Arquivo" - Novo](img/p1-i4.PNG)
 
 ## Salvando um Arquivo
 
