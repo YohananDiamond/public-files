@@ -31,9 +31,9 @@ init() {
 	- To import a standard library (from the default set), use ``execf <std/filename.yap``.
 
 ## List of Functions
-Most of the functions I made on these ``.yap`` files I made.
+Most of the functions I made on these ``.yap`` files:
 
-```python
+```
 tail.glow()
 tail.dash()
 tail.hover()
