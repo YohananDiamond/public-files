@@ -1,7 +1,8 @@
 # DiamondPOW System
 Yes, again it doesn't work. I don't know why I do this. And, as I'm lazy, most of the things will just use the magic or hologram command. I don't care. This is more of a "show what functions exist".
 
-Anyways, ``yap`` = "Yet Another Program". It's a programming language test I wanted to make.
+Anyways, ``yap`` = "Yet Another Program". It's a programming language test I wanted to make.<br>
+I'm now aware that the filename ``.yap`` is used for the ``Prolog`` language, but it's too late.
 
 ## Included Parts
 - [x] Tail (``tail.yap``)
