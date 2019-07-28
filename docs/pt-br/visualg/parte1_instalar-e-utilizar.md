@@ -1,6 +1,6 @@
 # Parte 1: Como Instalar e Utilizar o VisuAlg
-Para instalar o VisuAlg 2.5 (a versão que será utilizada), utilize [este link.]().<br>
-Para encontrar outras versões, [pesquise na internet](https://www.google.com.br/search?q=visualg+download) ou utilize [o repositório oficial no SourceForge]().
+Para instalar o VisuAlg 2.5 (a versão que será utilizada), utilize [este link.](https://dicasdeprogramacao.com.br/download/visualg-2-5.zip).<br>
+Para encontrar outras versões, [pesquise na internet](https://www.google.com.br/search?q=visualg+download) ou utilize [o repositório oficial no SourceForge (Versão 3+)](https://sourceforge.net/projects/visualg3/).
 
 O manual oficial da versão 2 do VisuAlg está disponível [no site da UFSC](http://www.inf.ufsc.br/~bosco.sobral/ensino/ine5201/Visualg2_manual.pf).
 
