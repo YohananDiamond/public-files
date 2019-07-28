@@ -66,7 +66,7 @@ São expressões que envolvem os **operadores aritméticos**, utilizados em cál
 | `*` | 3 | Multiplicação. | `2 * 3` |
 | `/` | 3 | Divisão. Retorna erro ao tentar dividir por 0. | `10 / 4` |
 | `div` | 3 | Divisão Inteira - Retorna o quociente da divisão inteira, que é uma divisão em que não se considera a parte da divisão com as casas decimais e para quando não é mais possível dividir o resto pelo divisor. | `5 div 2`<br>Isso resultará em `2`. |
-| `%` ou `mod` | 3 | Módulo da Divisão - É o resto da divisão inteira. | `5 % 2`<br>`5 mod 2`<br>O resultado das duas expressões acima resultará em `1`, pois é o resto da divisão inteira.
+| `%` | 3 | Módulo da Divisão - É o resto da divisão inteira. Só funciona com números inteiros, mesmo que o número real seja com casa decimal igual a 0 (ex.: ``2.0``) | `5 % 2`<br>O resultado da expressão acima será `1`, pois é o resto da divisão inteira.
 | `+` | 4 | Soma. | `5 + 3` |
 | `-` | 4 | Subtração | `3 + 3` |
 

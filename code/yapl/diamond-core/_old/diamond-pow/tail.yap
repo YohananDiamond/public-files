@@ -25,7 +25,7 @@ func dash(dir:Vector3, mode:str='normal', spd:float) { # The dash power. Can be 
 		print('Invalid Dash usage.')
 		break
 	}
-	dir.normalize() # The vector will now have length = 1.
+	dir.normalize() # The vector will now have length = 1. # Note: add vector class and processing
 	if (magic.energy > needed_energy) {
 		magic::('Dash on the direction {}, speed {}, duration {}.'.format(dir, spd, dur), # It will use the needed amount of magical energy for thes situation, be it 'normal' or 'water'.
 			'While dashing, execute the function', glow('tail_only'))
