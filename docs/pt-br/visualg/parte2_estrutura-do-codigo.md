@@ -7,7 +7,7 @@ Esta parte do guia ensina como funciona a estrutura do código no VisuAlg e algu
 
 ## Introdução ao Código
 
-Ao abrir o VisuAlg, tem-se com o seguinte código:
+Ao abrir o VisuAlg, tem-se o seguinte código:
 ```c
 algoritmo "semnome"
 // Função :
@@ -58,42 +58,44 @@ As expressões (e os operadores) podem servir, na programação, para diversas s
 ### Expressões Aritméticas
 São expressões que envolvem os **operadores aritméticos**, utilizados em cálculos com números.
 
-| Símbolo | Ordem | Significado | Exemplo |
-| --- | :---: | --- | --- |
-| `()` | 1 | Parênteses - Priorizam cálculos. | `(4 + 3)` |
-| `pot(base, expoente)` | 2 | Potenciação - Faz uma potenciação com os valores dados entre os parênteses. | `pot(2, 3)`<br>Neste caso, o resultado será `8`. |
-| `rad(x)` | 2 | Faz a raiz quadrada do valor entre os parênteses. | `rad(25)`<br>Neste caso, o resultado será `5`. |
-| `*` | 3 | Multiplicação. | `2 * 3` |
-| `/` | 3 | Divisão. Retorna erro ao tentar dividir por 0. | `10 / 4` |
-| `div` | 3 | Divisão Inteira - Retorna o quociente da divisão inteira, que é uma divisão em que não se considera a parte da divisão com as casas decimais e para quando não é mais possível dividir o resto pelo divisor. | `5 div 2`<br>Isso resultará em `2`. |
-| `%` | 3 | Módulo da Divisão - É o resto da divisão inteira. Só funciona com números inteiros, mesmo que o número real seja com casa decimal igual a 0 (ex.: ``2.0``) | `5 % 2`<br>O resultado da expressão acima será `1`, pois é o resto da divisão inteira.
-| `+` | 4 | Soma. | `5 + 3` |
-| `-` | 4 | Subtração | `3 + 3` |
+***Nota**: A coluna "Ordem" na tabela abaixo mostra a ordem de precedência na qual o VisuAlg executa as operações no código. Se dois operadores tem a mesma ordem de precedência, o mais à esquerda terá a precedência.*
 
-***Nota**: A coluna "Ordem" mostra a ordem de precedência na qual os computadores executam as operações no código. <br>Por exemplo, a multiplicação é feita antes da soma e da subtração.*
+| Símbolo | Ordem | Significado | Exemplo(s) | Resultado(s) |
+| --- | :---: | --- | --- | --- |
+| `()` | 1 | **Parênteses** - Priorizam cálculos. | `(4 + 3)` | ``7`` |
+| `pot(base, expoente)` ou `base ^ expoente` | 2 | **Potenciação** - Faz uma potenciação com os valores dados. | `pot(2, 3)`<br>`3 ^ 2` | ``8``<br>``9``
+| `rad(x)` | 2 | Faz a **raiz quadrada** do valor entre os parênteses. | `rad(25)`<br>``rad(81)`` | ``5``<br>``9`` |
+| `*` | 3 | **Multiplicação** | `2 * 3` | ``6`` |
+| `/` | 3 | **Divisão**; retorna erro ao tentar dividir por 0. | `10 / 4`<br>``5 / 0`` | ``2.5``<br>``<erro>`` |
+| `div` | 3 | **Divisão Inteira**: retorna o quociente da divisão inteira, que é uma divisão que não inclui a parte das casas decimais. | `5 div 2`| ``2`` |
+| `%` | 3 | **Módulo da Divisão**: é o resto da divisão inteira. Só funciona com números inteiros, mesmo que o número real seja com casa decimal igual a 0 (ex.: ``2.0``) | `5 % 2`<br>``4.0 % 2`` | ``1``<br>``4.0`` |
+| `+` | 4 | **Soma** | `5 + 3` | ``8`` |
+| `-` | 4 | **Subtração** | `3 - 3` | ``0`` |
 
 ### Expressões Relacionais
 São expressões que envolvem os **operadores relacionais**, que servem para comparar valores.<br>
 Esses valores podem ser expressões (ex.: ``2 + 3``) que resultam em um valor ou valores em si (ex.: ``5``).<br>
 Mas algo que deve ser lembrado é que **os valores devem ser do mesmo tipo**. Um inteiro não pode ser comparado a um caractere, pelo menos no VisuAlg.
 
-| Símbolo | Ordem | Significado | Exemplo | Resultado |
+***Nota**: Não há ordem de precedência para estes operadores; eles são executados da esquerda para a direita na linha, mas podem ser priorizados utilizando os parênteses.*
+
+| Símbolo | Ordem | Significado | Exemplo(s) | Resultado(s) |
 | --- | :---: | --- | --- | --- |
-| ``=`` | Nenhuma<br>Eles são executados da esquerda para a direita na linha, mas podem ser priorizados utilizando os parênteses. | **"Igual"** - Verifica se os dois lados são iguais.<br>Curiosidade: em algumas linguagens de programação mais comuns, é utilizado o símbolo ``==``. | ``4 = 2 + 2``<br>Também temos ``"abc" = "abc"``<br>Ou até ``(2 > 1) = verdadeiro`` | ``verdadeiro``
+| ``=`` | Nenhuma<br> | **"Igual"** - Verifica se os dois lados são iguais.<!--<br>Curiosidade: em algumas linguagens de programação mais comuns, é utilizado o símbolo ``==``.--> | ``4 = 2 + 2``<br>``"abc" = "abc"``<br>``(2 > 1) = verdadeiro`` | ``verdadeiro``
 | ``>`` | Nenhuma | **"Maior que"** | ``1 > 5`` | ``verdadeiro``
 | ``<`` | Nenhuma | **"Menor que"** | ``5 < (3 + 3)`` | ``falso``
 | ``>=`` | Nenhuma | **"Maior ou igual a"** | ``1 + 3 >= 4``<br>Uma coisa a notar aqui é que primeiramente a expressão aritmética ``1 + 3`` será resolvida para depois se resolver a expressão relacional. | ``verdadeiro``
 | ``<=`` | Nenhuma | **"Menor ou igual a"** | ``1 + 3 <= 4`` | ``verdadeiro``
-| ``<>`` | Nenhuma | **"Diferente"** - Verifica se os dois lados são diferentes.<br>A maioria das linguagens de programação atuais utilizam o ``!=``, mas este não é o caso do VisuAlg. | ``1 <> 1 * 1`` | ``falso``
+| ``<>`` | Nenhuma | **"Diferente"** - Verifica se os dois lados são diferentes.<!--<br>A maioria das linguagens de programação atuais utilizam o ``!=``, mas este não é o caso do VisuAlg.--> | ``1 <> 1 * 1`` | ``falso``
 
 ### Expressões Lógicas
 Eles servem para combinar ou alterar valores lógicos.
 
 | Símbolo | Ordem | Significado | Exemplo | Resultado |
 | --- | :---: | --- | --- | --- |
-| ``e`` | 1 | **Operador Conjuntivo**: retorna verdadeiro somente se os dois valores forem verdadeiros, ou seja, se ``valor 1`` for verdadeiro **e** ``valor 2`` for verdadeiro.<br>Em outras linguagens, utiliza-se geralmente ``and`` (versão em inglês) ou ``^`` | ``verdadeiro e falso`` | ``falso`` |
-| ``ou`` | 2 | **Operador Disjuntivo**: retorna verdadeiro se pelo menos um deles for verdadeiro, ou seja, se ``valor 1`` for verdadeiro **ou** ``valor 2`` for verdadeiro.<br>Em outras linguagens geralmente se utiliza ``or``. | ``falso ou 2 > 1`` | ``verdadeiro`` |
-| ``nao`` (não) | 3 | **Operador Negativo**: retorna o contrário de um valor.<br>Em outras linguagens é mais comum o uso de ``not``, mas às vezes também ``~`` ou ``¬``. | ``nao (5 % 2 = 1)`` | ``falso`` |
+| ``e`` | 1 | **Operador Conjuntivo**: retorna verdadeiro somente se os dois valores forem verdadeiros, ou seja, se ``valor 1`` for verdadeiro **e** ``valor 2`` for verdadeiro.<!--<br>Em outras linguagens, utiliza-se geralmente ``and`` (versão em inglês) ou ``^``--> | ``verdadeiro e falso`` | ``falso`` |
+| ``ou`` | 2 | **Operador Disjuntivo**: retorna verdadeiro se pelo menos um deles for verdadeiro, ou seja, se ``valor 1`` for verdadeiro **ou** ``valor 2`` for verdadeiro.<!--<br>Em outras linguagens geralmente se utiliza ``or``.--> | ``falso ou 2 > 1`` | ``verdadeiro`` |
+| ``nao`` | 3 | **Operador Negativo**: retorna o contrário de um valor.<!--<br>Em outras linguagens é mais comum o uso de ``not``, mas às vezes também ``~`` ou ``¬``.--> | ``nao (5 % 2 = 1)`` | ``falso`` |
 
 ### Tabela da Verdade
 É um tipo de tabela utilizada para fazer a verificação de como funciona um operador.<br>
