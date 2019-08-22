@@ -64,7 +64,7 @@ São expressões que envolvem os **operadores aritméticos**, utilizados em cál
 | --- | :---: | --- | --- | --- |
 | `()` | 1 | **Parênteses** - Priorizam cálculos. | `(4 + 3)` | ``7`` |
 | `pot(base, expoente)` ou `base ^ expoente` | 2 | **Potenciação** - Faz uma potenciação com os valores dados. | `pot(2, 3)`<br>`3 ^ 2` | ``8``<br>``9``
-| `rad(x)` | 2 | Faz a **raiz quadrada** do valor entre os parênteses. | `rad(25)`<br>``rad(81)`` | ``5``<br>``9`` |
+| `raizq(x)` | 2 | Faz a **raiz quadrada** do valor entre os parênteses. | `raizq(25)`<br>``raizq(81)`` | ``5``<br>``9`` |
 | `*` | 3 | **Multiplicação** | `2 * 3` | ``6`` |
 | `/` | 3 | **Divisão**; retorna erro ao tentar dividir por 0. | `10 / 4`<br>``5 / 0`` | ``2.5``<br>``<erro>`` |
 | `div` | 3 | **Divisão Inteira**: retorna o quociente da divisão inteira, que é uma divisão que não inclui a parte das casas decimais. | `5 div 2`| ``2`` |
