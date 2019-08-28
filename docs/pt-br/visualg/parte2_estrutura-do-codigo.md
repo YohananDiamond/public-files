@@ -1,3 +1,10 @@
+<!--
+ANOTAÇÕES:
+	Estruturas:
+		@bloco, @bloco_composto
+		FIM: @!estrutura
+-->
+
 # Parte 2: Estrutura do Código no VisuAlg
 
 Esta parte do guia ensina como funciona a estrutura do código no VisuAlg e alguns dos principais comandos.<br>
@@ -238,7 +245,7 @@ As estruturas de seleção permitem que um bloco de código (conjunto de código
 1. As **Estruturas de Seleção Simples** (utilizando ``se``) são executadas simplesmente se o que foi pedido foi verdadeiro:
 ```c
 se (condicao) entao
-	// Código dentro
+	// Código
 fimse
 ```
 O ``se`` inicia a estrutura.<br>
@@ -253,8 +260,8 @@ se (a > 0) entao
 	escreva("A é maior que 0.")
 fimse
 ```
-<br>
-**Curiosidade:** o ``se`` é o equivalente de ``if`` na maioria das linguagens de programação.
+
+<!--**Curiosidade:** o ``se`` é o equivalente de ``if`` na maioria das linguagens de programação.-->
 
 2. As **Estruturas de Seleção Composta** (utilizando ``se`` e ``senao``) providenciam suporte para executar se uma coisa se aquilo foi verdadeiro, porém dando também suporte para executar algo se aquilo não for verdadeiro.
 ```c
@@ -336,8 +343,8 @@ senao
 	fimse
 fimse
 ```
-<br>
-**Curiosidade:** existe um equivalente menor na maioria das linguagens de programação chamado ``else if`` ou ``elif``. Infelizmente, ele não está presente no VisuAlg 2.5.
+
+<!--**Curiosidade:** existe um equivalente menor na maioria das linguagens de programação chamado ``else if`` ou ``elif``. Infelizmente, ele não está presente no VisuAlg 2.5.-->
 
 ---
 
@@ -383,11 +390,124 @@ fimse
 fimalgoritmo
 ```
 
+### Estruturas de Repetição (``para``<!--, ``repita``, ``enquanto``-->)
+As estruturas de repetição servem para repetir um determinado bloco de código várias vezes, sem precisar escrever tal bloco mais de uma vez.
+
+1. A estrutura ``para`` é utilizada para repitir um código baseado em um intervalo numérico (geralmente inteiro) definido para uma *variável de controle*.<br>
+Uma *variável de controle* é uma variável que contém o valor numérico e que pode ser utilizado.
+
+	<!-- @bloco -->
+	**"Fórmula"** ``(tipo 1)``:
+
+	```c
+	para <controle> de <inicial> ate <final> faca
+		<codigo>
+	fimfaca
+	```
+
+	O VisuAlg faz o seguinte com essa estrutura (por padrão):
+
+	- Seleciona a variável definida em ``<controle>`` e define seu valor para ``<inicial>``;
+	- Roda o ``<codigo>``;
+	- Ao chegar em ``fimfaca``, se ``<controle>`` for maior que ``<final>``, ele para; se não for, ele adiciona ``1`` ao ``<controle>`` e volta para o início;
+	<!-- @!bloco -->
+
+	<!-- @bloco_composto -->
+	**Exemplo:**
+
+	- Código:
+		```c
+		algoritmo "teste-com-para"
+		var j : inteiro // j é um nome comum utilizado para variáveis de controle, mas não é obrigatório que seja esse.
+		para j de 0 ate 10 faca
+			escreva(j)
+		fimfaca
+		```
+	- Saída:
+		```
+		0 1 2 3 4 5 6 7 8 9 10
+		```
+
+	O que aconteceu aqui é que a estrutura ``para`` foi contando de ``0`` até ``10``, adicionando de 1 em 1 à variável de controle ``j``. Toda vez que ele fez isso, ele rodou o código de dentro, que justamente mostrou o ``j`` na tela.
+	<!-- @!bloco_composto -->
+
+	<!-- @bloco -->
+	
+	---
+
+	**"Fórmula"** ``(tipo 2)``:
+
+	```c
+	para <controle> de <inicial> ate <final> passo <passo> faca
+		<codigo>
+	fimfaca
+	```
+
+	Nesta situação, foi adicionado o ``passo <passo>``. Ele é utilizado para alterar o valor com que a variável de controle vai adicionando cada vez que chega em ``fimfaca``.
+	No primeiro exemplo, como isso não foi definido no código, a estrutura considerou o passo como ``1``, e por isso ``j`` foi aumentando de 1 em 1.
+	<!-- @!bloco -->
+
+	<!-- @bloco_composto -->
+	**Exemplo**:
+
+	- Código:
+		```c
+		algoritmo "teste-com-para"
+		var j : inteiro
+		para j de 0 ate 10 passo 2 faca
+			escreva(j)
+		fimfaca
+		```
+	- Saída:
+		```
+		0 2 4 6 8 10
+		```
+
+	Nesta situação, como o passo foi igual a ``2``, a estrutura foi adicionando ``2`` a ``j`` ao invés de 1, o que fez com que ele só mostrasse os números pares.
+	<!-- @!bloco_composto -->
+
+	<!-- @bloco_composto -->
+	**Exemplo 2**:
+
+	- Código (com erro):
+		```c
+		algoritmo "teste-com-para"
+		var j : inteiro
+		para j de 10 ate 0 passo 1 faca
+			escreva(j)
+		fimfaca
+		```
+	- Saída:
+		```
+		```
+
+	Em algumas situações queremos ir de um número até um outro menor. Porém, como a estrutura ``para``, por padrão, para quando ``<inicio>`` é maior que ``<fim>``, não é possível fazer dessa forma.
+
+	> Note que isso não é um erro de sintaxe, mas sim de lógica. O VisuAlg não interpreta o código acima como um erro porque ele na verdade não é - ele só não funciona porque a condição inicial para parar (``inicio`` > ``fim``) é verdadeira.
+
+	Existe uma técnica para aplicar a estrutura ``para`` em forma decrescente: **definir o passo para um número menor que 1**. Observe o exemplo:
+
+	- Código (sem erro):
+		```c
+		algoritmo "teste-com-para"
+		var j : inteiro
+		para j de 10 ate 0 passo -1 faca
+			escreva(j)
+		fimfaca
+		```
+	- Saída:
+		```
+		10 9 8 7 6 5 4 3 2 1
+		```
+
+	Agora o código está funcionando, justamente porque, com o passo negativo, a condição para parar passa a ser ``inicio`` < ``fim``.
+	<!-- @!bloco_composto -->
+
 ---
 
 ## Aguardando...
-- [ ] Estruturas de Repetição ``(Ainda não ensinado)``:
-	- [ ] Introdução às estruturas de repetição;
-	- [ ] Repetição com teste no início;
-	- [ ] Repetição com teste no final;
-	- [ ] Repetição com variável de controle.
+- [ ] Estruturas de Repetição ``(ensinando)``:
+	- [x] Introdução às estruturas de repetição;
+	- [x] Repetição ``para``, com variável de controle.
+	- [ ] Repetição ``enquanto``, com teste no início;
+	- [ ] Repetição ``repita``, com teste no final;
