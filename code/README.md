@@ -1,7 +1,7 @@
 # Code Files
 
 Here are some code files that I want to upload, but they are too complex to be into only gist and too small to have their own repos.<br>
-Quality is not assured in any way. This, in most cases, can be called a "junk folder".
+Quality is not assured in any way. This could be also called a "junk folder".
 
 | File / Folder | Description |
 | :-----------: | ----------- |
