@@ -1,10 +1,3 @@
-<!--
-ANOTAÇÕES:
-	Estruturas:
-		@bloco, @bloco_composto
-		FIM: @!estrutura
--->
-
 # Parte 2: Estrutura do Código no VisuAlg
 
 Esta parte do guia ensina como funciona a estrutura do código no VisuAlg e alguns dos principais comandos.<br>
@@ -65,7 +58,7 @@ As expressões (e os operadores) podem servir, na programação, para diversas s
 ### Expressões Aritméticas
 São expressões que envolvem os **operadores aritméticos**, utilizados em cálculos com números.
 
-***Nota**: A coluna "Ordem" na tabela abaixo mostra a ordem de precedência na qual o VisuAlg executa as operações no código. Se dois operadores tem a mesma ordem de precedência, o mais à esquerda terá a precedência.*
+> **Nota**: A coluna "Ordem" na tabela abaixo mostra a ordem de precedência na qual o VisuAlg executa as operações no código. Se dois operadores tem a mesma ordem de precedência, o mais à esquerda terá a precedência.
 
 | Símbolo | Ordem | Significado | Exemplo(s) | Resultado(s) |
 | --- | :---: | --- | --- | --- |
@@ -505,9 +498,177 @@ Uma *variável de controle* é uma variável que contém o valor numérico e que
 
 ---
 
-## Aguardando...
-- [ ] Estruturas de Repetição ``(ensinando)``:
-	- [x] Introdução às estruturas de repetição;
-	- [x] Repetição ``para``, com variável de controle.
-	- [ ] Repetição ``enquanto``, com teste no início;
-	- [ ] Repetição ``repita``, com teste no final;
+### Estrutura `enquanto`
+
+A estrutura `enquanto` funciona de forma similar à estrutura `repita`, mas neste caso, o teste que verifica se vai repitir está no início:
+
+```c
+enquanto <condição> faça
+    <código>
+fimenquanto
+```
+
+O VisuAlg faz o seguinte com a estrutura `enquanto`:
+
+1. Roda `<condição>`; se o resultado for verdadeiro, continua.
+
+2. Roda `<código>`.
+
+3. Ao chegar no final, volta para o passo 1.
+
+O funcionamento do `enquanto` é muito mais simples. Vejamos agora um exemplo para contar os números pares de 0 a 10.
+
+```c
+algoritmo "1-10-enquanto"
+    var j: inteiro
+    inicio
+        j := 0
+        enquanto (j <= 10) faca
+            se ((j % 2) = 0) entao
+                escreva(j)
+            fimse
+            j := j + 1
+        fimenquanto
+fimalgoritmo
+```
+
+Esta estrutura pode ser mais complicada para contar de um número a outro, e ela é recomendada para outras situações. Veja aqui um outro programa em que ela se pode se encaixar também:
+
+```c
+algoritmo "rodando-sempre"
+    var
+    inicio
+        enquanto (verdadeiro) faca
+            escreva("texto.")
+        fimenquanto
+fimalgoritmo
+```
+
+Neste caso, o resultado vai ser uma tela cheia de `texto.`, já que a condição do enquanto é sempre verdadeira. O programa vai ficar rodando para sempre, até que você feche ele forçadamente.
+
+### Estrutura `repita`
+
+Uma outra estrutura de repetição muito interessante é a `repita`, já que ela só começa a fazer o teste `<condição>` depois que rodou `<código>` uma vez. Vejamos como funciona a estrutura:
+
+```
+repita
+    <código>
+ate <condição>
+```
+
+Aqui os passos que o VisuAlg recebe quando ele encontra essa estrutura:
+
+1. Roda o `<código>`
+
+2. Se `<condição>` for verdadeiro, para.
+
+3. Se `<condição>` for falso, volta para o passo 1.
+
+Isso pode ser útil em programas como este:
+
+```c
+algoritmo "digite-senha"
+    var senha, tentativa: caractere
+    inicio
+        repita
+            escreva("Digite a senha: ")
+            leia(tentativa)
+        ate (senha = tentativa)
+fimalgoritmo
+```
+
+Neste programa, logo no início já é pedido para o usuário digitar a senha, e a verificação para parar o programa só chega no final.
+
+### Estrutura `escolha` (usando `caso`)
+
+A estrutura `escolha` é uma solução interessante para situações em que se utiliza muitos `senão`-`se`. Ela é formada deste jeito:
+
+```c
+escolha <variável>
+caso <caso1>
+    <código1>
+caso <caso2>
+    <código2>
+...
+outrocaso
+    <outrocódigo>
+fimescolha
+```
+
+Nesta estrutura, o VisuAlg executa os seguintes passos:
+
+1. Pega o valor de `<variável>`.
+
+2. Vai passando de caso em caso.
+
+    2.1. Se `<variável> = <casoX>`, roda o `<códigoX>`.
+
+3. Se nenhum dos casos tiver funcionado, roda `<outrocódigo>`.
+
+Vejamos um exemplo:
+
+```c
+algoritmo "escolha-nome"
+    var entrada: caractere
+    inicio
+        escreva("Digite um nome: ")
+        leia(entrada)
+        escolha entrada
+        caso "Ana"
+            escreva("Te conheço!")
+        caso "Ítalo"
+            escreva("Te conheço!")
+        outrocaso
+            escreva("Não te conheço...")
+        fimescolha
+fimalgoritmo
+```
+
+Neste exemplo, o computador pediu para o usuário digitar um nome, e se ele fosse "Ana" ou "Ítalo" ele iria responder que conhece; em outros casos, responderia que não conhece.
+
+Há uma maneira de melhorar ainda mais esse algoritmo, já que para "Ana" e "Ítalo" acontece a mesma coisa:
+
+```c
+algoritmo "escolha-nome"
+    var entrada: caractere
+    inicio
+        escreva("Digite um nome: ")
+        leia(entrada)
+        escolha entrada
+        caso "Ana", "Ítalo"
+            escreva("Te conheço!")
+        outrocaso
+            escreva("Não te conheço...")
+        fimescolha
+fimalgoritmo
+```
+
+Ao fazer isso, o VisuAlg irá ler a linha `caso "Ana", "Ítalo"` e ver se `entrada` é igual a um deles.
+
+Também temos outros exemplos, com números:
+
+```c
+algoritmo "escolha-nome"
+    var x: inteiro
+    inicio
+        escreva("Digite um número: ")
+        leia(x)
+        escolha x
+        caso 0
+            escreva("Nada.")
+        caso 1
+            escreva("Um pouco.")
+        caso 2 ate 10
+            escreva("Um pouco, mas não tanto quanto 1.")
+        fimescolha
+fimalgoritmo
+```
+
+Neste caso, utilizando números, podemos verificar se `x` é igual ao número ou se ele está em um intervalo (como em `2 ate 10`).
+
+---
+
+## A Fazer
+
+- [ ] Adicionar mais exemplos
+    - [ ] 10 ate 20, 20 ate 30 (20 repitindo)

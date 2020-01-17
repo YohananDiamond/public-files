@@ -1,0 +1,623 @@
+<html>
+    <head>
+        <title>Document</title>
+        <style>    html {
+        font-family: 'Ubuntu Mono', 'Arial', 'Verdana';
+    }</style>
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="HandheldFriendly" content="true">
+    </head>
+    <body>
+        <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true" style="position: relative;"><h1 id="Parte-2-Estrutura-do-Código-no-VisuAlg">Parte 2: Estrutura do Código no VisuAlg</h1><p>Esta parte do guia ensina como funciona a estrutura do código no VisuAlg e alguns dos principais comandos.<br><br>
+        É recomendado que se leia tudo em ordem, mas não existem complicações em ler os pedaços. Lembre-se de prestar atenção nos comentários de códigos para entender como funciona direito.</p><hr><h2 id="Introdução-ao-Código">Introdução ao Código</h2><p>Ao abrir o VisuAlg, tem-se o seguinte código:</p><pre><code class="c hljs">algoritmo <span class="token string">"semnome"</span>
+        <span class="token comment">// Função :</span>
+        <span class="token comment">// Autor :</span>
+        <span class="token comment">// Data : 30/06/2019</span>
+        <span class="token comment">// Seção de Declarações </span>
+        var
+        
+        inicio
+        <span class="token comment">// Seção de Comandos </span>
+        fimalgoritmo
+        </code></pre><p>Todo código é executado de cima para baixo. A linha 1 vem antes da linha 2, que vem antes da linha 3, e assim em seguida.</p><h3 id="algoritmo-semnome"><code>algoritmo "semnome"</code></h3><p>Este é o código que inicia o programa; no lugar de <code>"semnome"</code> pode-se colocar o nome do programa (mas isso não muda nada no funcionamento do código).<br>Exemplo:</p><pre><code class="c hljs">algoritmo <span class="token string">"primeiro-programa"</span>
+        </code></pre><h3 id="-Comentários"><code>// Comentários</code></h3><p>São anotações em um código. Elas servem para esclarecer coisas e anotar informações, mas não afetam o código.<br>Exemplo:</p><pre><code class="c hljs"><span class="token comment">// Este é um comentário em uma linha.</span>
+        algoritmo <span class="token string">"primeiro-programa"</span> <span class="token comment">// Este é um comentário no fim de uma linha. Tudo depois do "//" não é executado e é ignorado durante o funcionamento do programa.</span>
+        </code></pre><h3 id="var"><code>var</code></h3><p>Este é um local onde é possível criar as variáveis que serão utilizadas ao decorrer do programa. Variáveis são espaços na memória do programa que podem receber valores, que poderão ser alterados e utilizados no programa.</p><pre><code class="c hljs">var a<span class="token punctuation">,</span> b <span class="token punctuation">:</span> inteiro
+        	h30<span class="token punctuation">,</span> d <span class="token punctuation">:</span> real
+        	e<span class="token punctuation">,</span> teste <span class="token punctuation">:</span> caractere
+        	uw4<span class="token punctuation">,</span> o3wo <span class="token punctuation">:</span> logico
+        </code></pre><p>O VisuAlg 2.5 aceita quatro tipos de variáveis diferentes:</p><ul>
+        <li><code>inteiro</code>: números inteiros, sem casas decimais.<br>Exemplo: <code>2</code></li>
+        <li><code>real</code>: números reais. Podem ter ou não casas decimais, já que os números inteiros são um subconjunto dos números reais.<br>Outra coisa a se ressaltar é que se utiliza <code>.</code> ao invés de <code>,</code> para as casas decimais:<br>Exemplo: <code>2</code>, <code>5.0</code>, <code>16.43</code></li>
+        <li><code>caractere</code>: conhecido como <em>string</em> na maioria das linguagens de programação - ou ainda <em>“cadeia de caracteres”</em> em português, se refere a qualquer tipo de texto. Esse texto deve ficar entre aspas.<br>Nota: números podem ser colocados dentro de um caractere, mas eles não poderão ser utilizados para expressões matemáticas.<br>Exemplo: <code>"olá, mundo!"</code>, <code>"eu comprei 64209 folhas de papel"</code> ou até <code>"a"</code> ou <code>"5"</code>.</li>
+        <li><code>logico</code>: conhecido como <em>boolean</em> (ou <em>“booleano”</em>, aportuguesando) em outras linguagens, é um valor que só pode ser <code>verdadeiro</code> ou <code>falso</code>.</li>
+        </ul><hr><h2 id="Expressões-Aritméticas-Relacionais-e-Lógicas">Expressões Aritméticas, Relacionais e Lógicas</h2><p>As expressões (e os operadores) podem servir, na programação, para diversas situações. Eles serão explorados mais à frente no documento, mas é bom fazer uma introdução a eles primeiro.</p><h3 id="Expressões-Aritméticas">Expressões Aritméticas</h3><p>São expressões que envolvem os <strong>operadores aritméticos</strong>, utilizados em cálculos com números.</p><p><em><strong>Nota</strong>: A coluna “Ordem” na tabela abaixo mostra a ordem de precedência na qual o VisuAlg executa as operações no código. Se dois operadores tem a mesma ordem de precedência, o mais à esquerda terá a precedência.</em></p><table>
+        <thead>
+        <tr>
+        <th>Símbolo</th>
+        <th style="text-align:center">Ordem</th>
+        <th>Significado</th>
+        <th>Exemplo(s)</th>
+        <th>Resultado(s)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td><code>()</code></td>
+        <td style="text-align:center">1</td>
+        <td><strong>Parênteses</strong> - Priorizam cálculos.</td>
+        <td><code>(4 + 3)</code></td>
+        <td><code>7</code></td>
+        </tr>
+        <tr>
+        <td><code>pot(base, expoente)</code> ou <code>base ^ expoente</code></td>
+        <td style="text-align:center">2</td>
+        <td><strong>Potenciação</strong> - Faz uma potenciação com os valores dados.</td>
+        <td><code>pot(2, 3)</code><br><code>3 ^ 2</code></td>
+        <td><code>8</code><br><code>9</code></td>
+        </tr>
+        <tr>
+        <td><code>raizq(x)</code></td>
+        <td style="text-align:center">2</td>
+        <td>Faz a <strong>raiz quadrada</strong> do valor entre os parênteses.</td>
+        <td><code>raizq(25)</code><br><code>raizq(81)</code></td>
+        <td><code>5</code><br><code>9</code></td>
+        </tr>
+        <tr>
+        <td><code>*</code></td>
+        <td style="text-align:center">3</td>
+        <td><strong>Multiplicação</strong></td>
+        <td><code>2 * 3</code></td>
+        <td><code>6</code></td>
+        </tr>
+        <tr>
+        <td><code>/</code></td>
+        <td style="text-align:center">3</td>
+        <td><strong>Divisão</strong>; retorna erro ao tentar dividir por 0.</td>
+        <td><code>10 / 4</code><br><code>5 / 0</code></td>
+        <td><code>2.5</code><br><code>&lt;erro&gt;</code></td>
+        </tr>
+        <tr>
+        <td><code>div</code></td>
+        <td style="text-align:center">3</td>
+        <td><strong>Divisão Inteira</strong>: retorna o quociente da divisão inteira, que é uma divisão que não inclui a parte das casas decimais.</td>
+        <td><code>5 div 2</code></td>
+        <td><code>2</code></td>
+        </tr>
+        <tr>
+        <td><code>%</code></td>
+        <td style="text-align:center">3</td>
+        <td><strong>Módulo da Divisão</strong>: é o resto da divisão inteira. Só funciona com números inteiros, mesmo que o número real seja com casa decimal igual a 0 (ex.: <code>2.0</code>)</td>
+        <td><code>5 % 2</code><br><code>4.0 % 2</code></td>
+        <td><code>1</code><br><code>4.0</code></td>
+        </tr>
+        <tr>
+        <td><code>+</code></td>
+        <td style="text-align:center">4</td>
+        <td><strong>Soma</strong></td>
+        <td><code>5 + 3</code></td>
+        <td><code>8</code></td>
+        </tr>
+        <tr>
+        <td><code>-</code></td>
+        <td style="text-align:center">4</td>
+        <td><strong>Subtração</strong></td>
+        <td><code>3 - 3</code></td>
+        <td><code>0</code></td>
+        </tr>
+        </tbody>
+        </table><h3 id="Expressões-Relacionais">Expressões Relacionais</h3><p>São expressões que envolvem os <strong>operadores relacionais</strong>, que servem para comparar valores.<br><br>
+        Esses valores podem ser expressões (ex.: <code>2 + 3</code>) que resultam em um valor ou valores em si (ex.: <code>5</code>).<br><br>
+        Mas algo que deve ser lembrado é que <strong>os valores devem ser do mesmo tipo</strong>. Um inteiro não pode ser comparado a um caractere, pelo menos no VisuAlg.</p><p><em><strong>Nota</strong>: Não há ordem de precedência para estes operadores; eles são executados da esquerda para a direita na linha, mas podem ser priorizados utilizando os parênteses.</em></p><table>
+        <thead>
+        <tr>
+        <th>Símbolo</th>
+        <th style="text-align:center">Ordem</th>
+        <th>Significado</th>
+        <th>Exemplo(s)</th>
+        <th>Resultado(s)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td><code>=</code></td>
+        <td style="text-align:center">Nenhuma<br></td>
+        <td><strong>"Igual"</strong> - Verifica se os dois lados são iguais.<!--<br>Curiosidade: em algumas linguagens de programação mais comuns, é utilizado o símbolo ``==``.--></td>
+        <td><code>4 = 2 + 2</code><br><code>"abc" = "abc"</code><br><code>(2 &gt; 1) = verdadeiro</code></td>
+        <td><code>verdadeiro</code></td>
+        </tr>
+        <tr>
+        <td><code>&gt;</code></td>
+        <td style="text-align:center">Nenhuma</td>
+        <td><strong>"Maior que"</strong></td>
+        <td><code>1 &gt; 5</code></td>
+        <td><code>verdadeiro</code></td>
+        </tr>
+        <tr>
+        <td><code>&lt;</code></td>
+        <td style="text-align:center">Nenhuma</td>
+        <td><strong>"Menor que"</strong></td>
+        <td><code>5 &lt; (3 + 3)</code></td>
+        <td><code>falso</code></td>
+        </tr>
+        <tr>
+        <td><code>&gt;=</code></td>
+        <td style="text-align:center">Nenhuma</td>
+        <td><strong>"Maior ou igual a"</strong></td>
+        <td><code>1 + 3 &gt;= 4</code><br>Uma coisa a notar aqui é que primeiramente a expressão aritmética <code>1 + 3</code> será resolvida para depois se resolver a expressão relacional.</td>
+        <td><code>verdadeiro</code></td>
+        </tr>
+        <tr>
+        <td><code>&lt;=</code></td>
+        <td style="text-align:center">Nenhuma</td>
+        <td><strong>"Menor ou igual a"</strong></td>
+        <td><code>1 + 3 &lt;= 4</code></td>
+        <td><code>verdadeiro</code></td>
+        </tr>
+        <tr>
+        <td><code>&lt;&gt;</code></td>
+        <td style="text-align:center">Nenhuma</td>
+        <td><strong>"Diferente"</strong> - Verifica se os dois lados são diferentes.<!--<br>A maioria das linguagens de programação atuais utilizam o ``!=``, mas este não é o caso do VisuAlg.--></td>
+        <td><code>1 &lt;&gt; 1 * 1</code></td>
+        <td><code>falso</code></td>
+        </tr>
+        </tbody>
+        </table><h3 id="Expressões-Lógicas">Expressões Lógicas</h3><p>Eles servem para combinar ou alterar valores lógicos.</p><table>
+        <thead>
+        <tr>
+        <th>Símbolo</th>
+        <th style="text-align:center">Ordem</th>
+        <th>Significado</th>
+        <th>Exemplo</th>
+        <th>Resultado</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td><code>e</code></td>
+        <td style="text-align:center">1</td>
+        <td><strong>Operador Conjuntivo</strong>: retorna verdadeiro somente se os dois valores forem verdadeiros, ou seja, se <code>valor 1</code> for verdadeiro <strong>e</strong> <code>valor 2</code> for verdadeiro.<!--<br>Em outras linguagens, utiliza-se geralmente ``and`` (versão em inglês) ou ``^``--></td>
+        <td><code>verdadeiro e falso</code></td>
+        <td><code>falso</code></td>
+        </tr>
+        <tr>
+        <td><code>ou</code></td>
+        <td style="text-align:center">2</td>
+        <td><strong>Operador Disjuntivo</strong>: retorna verdadeiro se pelo menos um deles for verdadeiro, ou seja, se <code>valor 1</code> for verdadeiro <strong>ou</strong> <code>valor 2</code> for verdadeiro.<!--<br>Em outras linguagens geralmente se utiliza ``or``.--></td>
+        <td><code>falso ou 2 &gt; 1</code></td>
+        <td><code>verdadeiro</code></td>
+        </tr>
+        <tr>
+        <td><code>nao</code></td>
+        <td style="text-align:center">3</td>
+        <td><strong>Operador Negativo</strong>: retorna o contrário de um valor.<!--<br>Em outras linguagens é mais comum o uso de ``not``, mas às vezes também ``~`` ou ``¬``.--></td>
+        <td><code>nao (5 % 2 = 1)</code></td>
+        <td><code>falso</code></td>
+        </tr>
+        </tbody>
+        </table><h3 id="Tabela-da-Verdade">Tabela da Verdade</h3><p>É um tipo de tabela utilizada para fazer a verificação de como funciona um operador.<br><br>
+        Exemplo de como funciona a tabela da verdade do operador <code>e</code>:</p><table>
+        <thead>
+        <tr>
+        <th><code>a</code></th>
+        <th><code>b</code></th>
+        <th><code>a e b</code></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td><code>verdadeiro</code></td>
+        <td><code>falso</code></td>
+        <td><code>falso</code></td>
+        </tr>
+        <tr>
+        <td><code>verdadeiro</code></td>
+        <td><code>verdadeiro</code></td>
+        <td><code>verdadeiro</code></td>
+        </tr>
+        <tr>
+        <td><code>falso</code></td>
+        <td><code>verdadeiro</code></td>
+        <td><code>falso</code></td>
+        </tr>
+        <tr>
+        <td><code>falso</code></td>
+        <td><code>falso</code></td>
+        <td><code>falso</code></td>
+        </tr>
+        </tbody>
+        </table><hr><p><strong>Agora voltando ao código propriamente dito no VisuAlg:</strong></p><h3 id="inicio-e-fimalgoritmo"><code>inicio</code> e <code>fimalgoritmo</code></h3><p>O comando <code>inicio</code> indica o início da parte em que se pode colocar definições de variáveis (atribuir valores) e em que se coloca o código propriamente dito com o funcionamento do programa.<br><br>
+        O comando <code>fimalgoritmo</code> termina o programa inteiro, e por isso nenhum comando deve ser colocado depois dele.</p><pre><code class="c hljs">inicio
+        <span class="token comment">// Seção de Comandos</span>
+        fimalgoritmo
+        </code></pre><h2 id="Testando-o-Código">Testando o Código</h2><p>Para testar o código, utilize o botão <code>Executar</code> na barra de ferramentas <img src="" alt="Imagem: Barra de Ferramentas - Executar">, a barra de menu (<code>Algoritmo &gt; Executar</code>) ou aperte <code>F9</code>.<br><br>
+        Para habilitar/desabilitar a execução passo-a-passo, utilize o botão <code>Passo-a-passo</code> na barra de ferramentas <img src="" alt="Imagem: Barra de Ferramentas - Passo a Passo">, a barra de menu (<code>Algoritmo &gt; Passo a Passo</code>) ou aperte <code>F8</code>.<br><br>
+        <img src="" alt="Imagem: Barra de Menu - Algoritmo"></p><p>Se você não colocou nenhum código novo até agora, o programa não mostrará nada.<br><br>
+        <img src="" alt="Imagem: Console - Vazio"></p><p>Outra coisa para ressaltar é que é possível executar o código sem que apareça o <em>console</em> (a “tela preta”).<br><br>
+        Aperte o botão <img src="" alt="Imagem: Barra de Ferramentas - Modo Console"> para ativar ou desativá-lo. Se desativado, o programa será executado na seção inferior direita do aplicativo:<br><br>
+        <img src="" alt="Imagem: Seção Inferior Direita"></p><h2 id="Comandos-e-Funções">Comandos e Funções</h2><h3 id="Utilizando-lt--para-definir-variáveis">Utilizando <code>&lt;-</code> para definir variáveis</h3><p>Para atribuir valores a variáveis, podemos utilizar o operador <code>&lt;-</code>.<br>Exemplo:</p><pre><code class="c hljs">a <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token operator">-</span><span class="token number">5</span>
+        b <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token number">23</span>
+        h30 <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token number">5.2</span>
+        d <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token number">3</span> <span class="token operator">-</span> <span class="token number">10</span> <span class="token comment">// Os valores podem ser também resultados de expressões. Neste caso, -7.</span>
+        e <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token string">"pedra"</span>
+        teste <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token string">"aa4cgfoDc#!@$"</span> <span class="token operator">+</span> <span class="token string">"jajaja"</span>
+        uw4 <span class="token operator">&lt;</span><span class="token operator">-</span> verdadeiro
+        o3wo <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token number">5</span> <span class="token operator">&gt;</span> <span class="token number">10</span> <span class="token comment">// Neste caso, o o3wo vai receber o valor de falso.</span>
+        </code></pre><p>Note que os valores devem ser dos tipos que foram <a href="#var">declarados lá na seção <code>var</code>.</a></p><h3 id="escreva-e-escreval-"><code>escreva()</code> e <code>escreval()</code> <a id="escreva" target="_blank" rel="noopener"></a> <a id="escreval" target="_blank" rel="noopener"></a></h3><p>O comando <code>escreva()</code> mostra na tela o que estiver entre parênteses (leia os comentários no código, pois eles ensinam as diversas maneiras de se utilizar este comando):</p><pre><code class="c hljs"><span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Olá, mundo!"</span><span class="token punctuation">)</span>
+        <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Este"</span> <span class="token operator">+</span> <span class="token string">" é"</span> <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> <span class="token string">"um texto "</span> <span class="token operator">+</span> <span class="token string">"quebrado "</span> <span class="token operator">+</span> e<span class="token punctuation">)</span> <span class="token comment">// Como a variável e, que tem "pedra" como valor, também é um caractere, ela pôde ser somada aqui dentro.</span>
+        <span class="token comment">// O comando escreva("a" + 3) não funcionaria porque não se pode somar valores de tipos diferentes. Para fazer isso, utiliza-se:</span>
+        <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment">// Deste modo, o resultado será "a 3"</span>
+        
+        <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"a"</span> <span class="token operator">+</span> e<span class="token punctuation">)</span> <span class="token comment">// Resulta em "apedra", pois não tem espaço entre os dois valores.</span>
+        <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"a "</span> <span class="token operator">+</span> e<span class="token punctuation">)</span> <span class="token comment">// Resulta em "a pedra", já que tem um espaço entre eles.</span>
+        <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment">// Por algum motivo, números (inteiros e reais) já vem com um espaço na esquerda, então o resultado deste será "a 3", como mostrado acima. Não é necessário utilizar um espaço a mais.</span>
+        <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">// Aqui o resultado será "a3.00", pois o :1:3 adicionado ao 3 indica que ele não terá espaço antes e terá duas casas decimais. Mais detalhes de como funciona isso:</span>
+        <span class="token comment">// Consideremos x:y:z</span>
+        <span class="token comment">// x é a variável. Ela deve ser um número, seja inteiro ou real.</span>
+        <span class="token comment">// y é a quantidade de espaços. Se for 1, a quantidade de espaços será 0; se for 2, a quantidade de espaços será 1; e assim em seguida. Como uma pequena curiosidade, se o número for 0 ou menos, ao invés de ocorrer um erro, o VisuAlg simplesmente usará o padrão, que é um espaço no número.</span>
+        <span class="token comment">// z é a quantidade de casas decimais. Se for 0 ou menos, nenhuma casa decimal será mostrada.</span>
+        </code></pre><p>Porém, existe um problema ao utilizar o <code>escreva()</code>: comandos respectivos saem na mesma linha. No caso, o resultado do programa com este código seria:</p><pre><code>Início da execução
+        Olá, mundo!Este é um texto quebrado pedraa 3apedraa pedraa 3a3.00
+        Fim da execução.
+        </code></pre><p>Para resolver este problema, existe o comando <code>escreval()</code> (<em>“escreva linha”</em>). Ele cria uma nova linha após ser executado, fazendo com que o próximo comando saia em outra linha. Assim, o resultado deste comando será:</p><pre><code>Início da execução
+        Olá, mundo!
+        Este é um texto quebrado pedra
+        a 3
+        apedra
+        a pedra
+        a 3
+        a3.00
+        
+        Fim da execução.
+        </code></pre><p>Note que esta última linha vazia antes de “Fim da execução.” foi criada por causa do último <code>escreval()</code> para resolver esse problema, basta trocar apenas o último <code>escreval()</code> por <code>escreva()</code>.</p><h3 id="leia"><code>leia()</code></h3><p>Este comando serve para pegar receber um valor digitado pelo usuário. Dentro dos <code>()</code> deve ser colocado o nome das variáveis para onde o que for digitado vai. Se a variável tiver um valor antes do comando, ele será substituído pelo que for digitado.</p><pre><code class="c hljs"><span class="token function">leia</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token comment">// Como a é inteiro, o programa só irá aceitar o que for digitado se for um número inteiro.</span>
+        <span class="token function">leia</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> e<span class="token punctuation">)</span> <span class="token comment">// O programa primeiro pedirá o valor de a (inteiro). Depois, em outra linha, ele pedirá o valor de e (caratere).</span>
+        </code></pre><p>Algo que deve ser notado é que o programa não irá perguntar nada, simplesmente dar espaço para o usuário digitar. Por isso, é sempre bom colocar um <code>escreva()</code> ou <code>escreval()</code> antes:</p><pre><code class="c hljs"><span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Digite o valor de a: "</span><span class="token punctuation">)</span>
+        <span class="token function">leia</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+        <span class="token comment">// A combinação destes dois fará com que o usuário possa digitar na mesma linha. Demonstração:</span>
+        <span class="token comment">// Digite o valor de a: valordea</span>
+        
+        <span class="token function">escreval</span><span class="token punctuation">(</span><span class="token string">"Digite o valor de a: "</span><span class="token punctuation">)</span>
+        <span class="token function">leia</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+        <span class="token comment">// Nesta combinação, ao usar o escreval, o usuário poderá digitar na outra linha. Demonstração:</span>
+        <span class="token comment">// Digite o valor de a:</span>
+        <span class="token comment">// valordea</span>
+        </code></pre><hr><h2 id="Indentação">Indentação</h2><p><strong>Indentação</strong>, no mundo da computação, se refere a espaços grandes criados com a tecla <code>tab</code>. Eles servem principalmente para colocar um código “dentro” de outro, em espaços uniformes. Exemplo:</p><pre><code>este é um texto sem identação
+        	apertando tab no início desta linha, foi possível adicionar um espaço de identação nele.
+        	também é possível	adicionar	tabulações	no meio da linha	fazendo	tabelas:
+        
+        a	boo	c
+        de	el	feg
+        
+        os		espaços		são			uniformes
+        e		se			auto-		ajustam
+        </code></pre><p>Isso será útil nas estruturas de código mostradas à frente.</p><hr><h2 id="Estruturas-de-Código">Estruturas de Código</h2><p>Estruturas de código são, como o nome diz, estruturas feitas de código. Elas possuem diversas utilidades, e nelas geralmente pode-se colocar mais código (o principal motivo para qual a identação é utilizada na programação).</p><h3 id="Estruturas-de-Seleção-se-senao">Estruturas de Seleção (<code>se</code>, <code>senao</code>)</h3><p>As estruturas de seleção permitem que um bloco de código (conjunto de código que estiver dentro desta estrutura) seja executado com base em uma ou mais condições lógicas, ou seja, se o que for pedido for verdadeiro.</p><ol>
+        <li>As <strong>Estruturas de Seleção Simples</strong> (utilizando <code>se</code>) são executadas simplesmente se o que foi pedido foi verdadeiro:</li>
+        </ol><pre><code class="c hljs">se <span class="token punctuation">(</span>condicao<span class="token punctuation">)</span> entao
+        	<span class="token comment">// Código</span>
+        fimse
+        </code></pre><p>O <code>se</code> inicia a estrutura.<br><br>
+        Dentro dos parênteses, onde fica a <code>condicao</code>, deve-se colocar a expressão lógica (ex.: <code>10 &gt; 4</code>) ou valor lógico (<code>verdadeiro</code> / <code>falso</code>) e a partir disso, se for verdadeiro, o código que está dentro será executado.<br><br>
+        Como explicado, <code>// Código dentro</code> é o lugar onde deverá ficar o código. Por questões de organização, é muito recomendado que se indente o que estiver dentro. Em algumas linguagens de programação (não é o caso do VisuAlg, mas é, por exemplo, do <em>Python</em>), a indentação é obrigatória nestes casos.<br><br>
+        O <code>fimse</code> indica a conclusão do código.<br><br><br>
+        Exemplo de código utilizando esta estrutura:</p><pre><code class="c hljs"><span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Digite o valor de a: "</span><span class="token punctuation">)</span>
+        <span class="token function">leia</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+        se <span class="token punctuation">(</span>a <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> entao
+        	<span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"A é maior que 0."</span><span class="token punctuation">)</span>
+        fimse
+        </code></pre><ol start="2">
+        <li>As <strong>Estruturas de Seleção Composta</strong> (utilizando <code>se</code> e <code>senao</code>) providenciam suporte para executar se uma coisa se aquilo foi verdadeiro, porém dando também suporte para executar algo se aquilo não for verdadeiro.</li>
+        </ol><pre><code class="c hljs">se <span class="token punctuation">(</span>condicao<span class="token punctuation">)</span> entao
+        	<span class="token comment">// Código executado se a condição for verdadeira.</span>
+        senao
+        	<span class="token comment">// Código executado se a condição for falsa.</span>
+        fimse
+        </code></pre><p><strong>Situação Extra</strong>:</p><pre><code class="c hljs"><span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Digite o valor de a: "</span><span class="token punctuation">)</span>
+        <span class="token function">leia</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+        se <span class="token punctuation">(</span>a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span> entao
+        	a <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token number">0</span>
+        	<span class="token function">escreval</span><span class="token punctuation">(</span><span class="token string">"A era igual a 1 e se tornou 0."</span><span class="token punctuation">)</span>
+        fimse
+        se <span class="token punctuation">(</span>a <span class="token operator">&lt;</span><span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span> entao
+        	a <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token number">1</span>
+        	<span class="token function">escreval</span><span class="token punctuation">(</span><span class="token string">"A não era 1, mas agora é."</span><span class="token punctuation">)</span>
+        fimse
+        </code></pre><pre><code class="c hljs"><span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Digite o valor de a: "</span><span class="token punctuation">)</span>
+        <span class="token function">leia</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+        se <span class="token punctuation">(</span>a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span> entao
+        	a <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token number">0</span>
+        	<span class="token function">escreval</span><span class="token punctuation">(</span><span class="token string">"A era igual a 1 e se tornou 0."</span><span class="token punctuation">)</span>
+        senao
+        	a <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token number">1</span>
+        	<span class="token function">escreval</span><span class="token punctuation">(</span><span class="token string">"A não era 1, mas agora é."</span><span class="token punctuation">)</span>
+        fimse
+        </code></pre><p>Esta situação pode confundir muito a início, pois existe uma diferença entre estes códigos, e provavelmente é o principal motivo da existência do <code>senao</code>: <strong>no primeiro bloco</strong>, o <code>a</code> (se for igual a 1) será transformado em 0; porém, logo depois, com a outra estrutura <code>se</code>, ele acaba (já que 0 é diferente de 1) sendo transformado em 1 de volta, e o código acaba se tornando completamente inútil.<br><br>
+        Já <strong>no segundo bloco</strong>, com o <code>senao</code>, se a primeira condição for verdadeira, o seu contrário não é verificado depois. O código no <code>senao</code> só é executado se, ao verificar no <code>se</code>, a condição for falsa.<br>
+        <br><br><br>
+        <strong>Curiosidade:</strong> o <code>senao</code> é o equivalente de <code>else</code> na maioria das linguagens de programação.</p><ol start="3">
+        <li>As <strong>Estruturas de Seleção Encadeada</strong> (utilizando <code>se</code> e <code>senao</code> + <code>se</code>) são uma adaptação/mistura das duas estruturas mencionadas acima que permitem que múltiplas condições sejam verificadas ao mesmo tempo.</li>
+        </ol><pre><code class="c hljs">se <span class="token punctuation">(</span>condicao1<span class="token punctuation">)</span> entao
+        	<span class="token comment">// Código executado se a condição 1 for verdadeira.</span>
+        senao
+        	se <span class="token punctuation">(</span>condicao2<span class="token punctuation">)</span> entao
+        		<span class="token comment">// Código executado se a condição 1 for verdadeira e a condição 2 for falsa.</span>
+        	senao
+        		<span class="token comment">// Código executado se a condição 1 e a 2 forem falsas.</span>
+        	fimse <span class="token comment">// Fim da estrutura de dentro</span>
+        fimse <span class="token comment">// Fim da estrutura de fora</span>
+        </code></pre><p>Exemplo de uso:</p><pre><code class="c hljs"><span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Digite o valor de a: "</span><span class="token punctuation">)</span>
+        <span class="token function">leia</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+        se <span class="token punctuation">(</span>a <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> entao <span class="token comment">// Se a for maior que 0.</span>
+        	<span class="token function">escreval</span><span class="token punctuation">(</span><span class="token string">"A é maior que 0."</span><span class="token punctuation">)</span>
+        senao
+        	se <span class="token punctuation">(</span>a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span> entao <span class="token comment">// Se a for igual a 0.</span>
+        		<span class="token function">escreval</span><span class="token punctuation">(</span><span class="token string">"A é igual a 0."</span><span class="token punctuation">)</span>
+        	senao
+        		<span class="token comment">// Se a não é nem maior nem igual a 0, ele é menor que 0.</span>
+        		<span class="token function">escreval</span><span class="token punctuation">(</span><span class="token string">"A é menor que 0."</span><span class="token punctuation">)</span>
+        	fimse
+        fimse
+        </code></pre><p>É possível encadear (ou aninhar) - ou seja, juntar código dentro - quantas vezes for necessário:</p><pre><code class="c hljs">se <span class="token punctuation">(</span>condicao1<span class="token punctuation">)</span> entao
+        	<span class="token comment">// condicao1 = verdadeiro</span>
+        senao
+        	se <span class="token punctuation">(</span>condicao2<span class="token punctuation">)</span> entao
+        		<span class="token comment">// condicao1 = falso; condicao2 = verdadeiro</span>
+        	senao
+        		se <span class="token punctuation">(</span>condicao3<span class="token punctuation">)</span> entao
+        			<span class="token comment">// condicao1 e condicao2 = falso; condicao3 = verdadeiro</span>
+        		senao
+        			<span class="token comment">// condicao1, condicao2 e condicao3 = falso</span>
+        		fimse
+        	fimse
+        fimse
+        </code></pre><hr><p>O código montado pelas principais partes mostradas neste documento é:</p><pre><code class="c hljs"><span class="token comment">// Este é um comentário em uma linha.</span>
+        algoritmo <span class="token string">"primeiro-programa"</span> <span class="token comment">// Este é um comentário no fim de uma linha. Tudo depois do "//" não é executado e é ignorado durante o funcionamento do programa.</span>
+        
+        var a<span class="token punctuation">,</span> b <span class="token punctuation">:</span> inteiro
+        	h30<span class="token punctuation">,</span> d <span class="token punctuation">:</span> real
+        	e<span class="token punctuation">,</span> teste <span class="token punctuation">:</span> caractere
+        	uw4<span class="token punctuation">,</span> o3wo <span class="token punctuation">:</span> logico
+        
+        inicio
+        <span class="token comment">// Início da seção de comandos</span>
+        a <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token operator">-</span><span class="token number">5</span>
+        b <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token number">23</span>
+        h30 <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token number">5.2</span>
+        d <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token number">3</span> <span class="token operator">-</span> <span class="token number">10</span>
+        e <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token string">"pedra"</span>
+        teste <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token string">"aa4cgfoDc#!@$"</span> <span class="token operator">+</span> <span class="token string">"jajaja"</span>
+        uw4 <span class="token operator">&lt;</span><span class="token operator">-</span> verdadeiro
+        o3wo <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token number">5</span> <span class="token operator">&gt;</span> <span class="token number">10</span>
+        
+        <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Olá, mundo!"</span><span class="token punctuation">)</span>
+        <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Digite o valor de a (numero inteiro): "</span><span class="token punctuation">)</span>
+        <span class="token function">leia</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+        
+        <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Digite o valor de a: "</span><span class="token punctuation">)</span>
+        <span class="token function">leia</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+        se <span class="token punctuation">(</span>a <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> entao <span class="token comment">// Se a for maior que 0.</span>
+        	<span class="token function">escreval</span><span class="token punctuation">(</span><span class="token string">"A é maior que 0."</span><span class="token punctuation">)</span>
+        senao
+        	se <span class="token punctuation">(</span>a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span> entao <span class="token comment">// Se a for igual a 0.</span>
+        		<span class="token function">escreval</span><span class="token punctuation">(</span><span class="token string">"A é igual a 0."</span><span class="token punctuation">)</span>
+        	senao
+        		<span class="token comment">// Se a não é nem maior nem igual a 0, ele é menor que 0.</span>
+        		<span class="token function">escreval</span><span class="token punctuation">(</span><span class="token string">"A é menor que 0."</span><span class="token punctuation">)</span>
+        	fimse
+        fimse
+        
+        <span class="token comment">// Fim da seção de comandos</span>
+        fimalgoritmo
+        </code></pre><h3 id="Estruturas-de-Repetição-para">Estruturas de Repetição (<code>para</code><!--, ``repita``, ``enquanto``-->)</h3><p>As estruturas de repetição servem para repetir um determinado bloco de código várias vezes, sem precisar escrever tal bloco mais de uma vez.</p><ol>
+        <li>
+        <p>A estrutura <code>para</code> é utilizada para repitir um código baseado em um intervalo numérico (geralmente inteiro) definido para uma <em>variável de controle</em>.<br><br>
+        Uma <em>variável de controle</em> é uma variável que contém o valor numérico e que pode ser utilizado.</p>
+         <!-- @bloco -->
+        <p><strong>"Fórmula"</strong> <code>(tipo 1)</code>:</p>
+        <pre><code class="c hljs">para <span class="token operator">&lt;</span>controle<span class="token operator">&gt;</span> de <span class="token operator">&lt;</span>inicial<span class="token operator">&gt;</span> ate <span class="token operator">&lt;</span>final<span class="token operator">&gt;</span> faca
+        	<span class="token operator">&lt;</span>codigo<span class="token operator">&gt;</span>
+        fimfaca
+        </code></pre>
+        <p>O VisuAlg faz o seguinte com essa estrutura (por padrão):</p>
+        <ul>
+        <li>Seleciona a variável definida em <code>&lt;controle&gt;</code> e define seu valor para <code>&lt;inicial&gt;</code>;</li>
+        <li>Roda o <code>&lt;codigo&gt;</code>;</li>
+        <li>Ao chegar em <code>fimfaca</code>, se <code>&lt;controle&gt;</code> for maior que <code>&lt;final&gt;</code>, ele para; se não for, ele adiciona <code>1</code> ao <code>&lt;controle&gt;</code> e volta para o início;</li>
+        </ul>
+         <!-- @!bloco -->
+         <!-- @bloco_composto -->
+        <p><strong>Exemplo:</strong></p>
+        <ul>
+        <li>Código:<pre><code class="c hljs">algoritmo <span class="token string">"teste-com-para"</span>
+        var j <span class="token punctuation">:</span> inteiro <span class="token comment">// j é um nome comum utilizado para variáveis de controle, mas não é obrigatório que seja esse.</span>
+        para j de <span class="token number">0</span> ate <span class="token number">10</span> faca
+        	<span class="token function">escreva</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span>
+        fimfaca
+        </code></pre>
+        </li>
+        <li>Saída:<pre><code>0 1 2 3 4 5 6 7 8 9 10
+        </code></pre>
+        </li>
+        </ul>
+        <p>O que aconteceu aqui é que a estrutura <code>para</code> foi contando de <code>0</code> até <code>10</code>, adicionando de 1 em 1 à variável de controle <code>j</code>. Toda vez que ele fez isso, ele rodou o código de dentro, que justamente mostrou o <code>j</code> na tela.</p>
+         <!-- @!bloco_composto -->
+         <!-- @bloco -->
+        <hr>
+        <p><strong>"Fórmula"</strong> <code>(tipo 2)</code>:</p>
+        <pre><code class="c hljs">para <span class="token operator">&lt;</span>controle<span class="token operator">&gt;</span> de <span class="token operator">&lt;</span>inicial<span class="token operator">&gt;</span> ate <span class="token operator">&lt;</span>final<span class="token operator">&gt;</span> passo <span class="token operator">&lt;</span>passo<span class="token operator">&gt;</span> faca
+        	<span class="token operator">&lt;</span>codigo<span class="token operator">&gt;</span>
+        fimfaca
+        </code></pre>
+        <p>Nesta situação, foi adicionado o <code>passo &lt;passo&gt;</code>. Ele é utilizado para alterar o valor com que a variável de controle vai adicionando cada vez que chega em <code>fimfaca</code>.<br>
+        No primeiro exemplo, como isso não foi definido no código, a estrutura considerou o passo como <code>1</code>, e por isso <code>j</code> foi aumentando de 1 em 1.</p>
+         <!-- @!bloco -->
+         <!-- @bloco_composto -->
+        <p><strong>Exemplo</strong>:</p>
+        <ul>
+        <li>Código:<pre><code class="c hljs">algoritmo <span class="token string">"teste-com-para"</span>
+        var j <span class="token punctuation">:</span> inteiro
+        para j de <span class="token number">0</span> ate <span class="token number">10</span> passo <span class="token number">2</span> faca
+        	<span class="token function">escreva</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span>
+        fimfaca
+        </code></pre>
+        </li>
+        <li>Saída:<pre><code>0 2 4 6 8 10
+        </code></pre>
+        </li>
+        </ul>
+        <p>Nesta situação, como o passo foi igual a <code>2</code>, a estrutura foi adicionando <code>2</code> a <code>j</code> ao invés de 1, o que fez com que ele só mostrasse os números pares.</p>
+         <!-- @!bloco_composto -->
+         <!-- @bloco_composto -->
+        <p><strong>Exemplo 2</strong>:</p>
+        <ul>
+        <li>Código (com erro):<pre><code class="c hljs">algoritmo <span class="token string">"teste-com-para"</span>
+        var j <span class="token punctuation">:</span> inteiro
+        para j de <span class="token number">10</span> ate <span class="token number">0</span> passo <span class="token number">1</span> faca
+        	<span class="token function">escreva</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span>
+        fimfaca
+        </code></pre>
+        </li>
+        <li>Saída:<pre><code></code></pre>
+        </li>
+        </ul>
+        <p>Em algumas situações queremos ir de um número até um outro menor. Porém, como a estrutura <code>para</code>, por padrão, para quando <code>&lt;inicio&gt;</code> é maior que <code>&lt;fim&gt;</code>, não é possível fazer dessa forma.</p>
+        <blockquote>
+        <p>Note que isso não é um erro de sintaxe, mas sim de lógica. O VisuAlg não interpreta o código acima como um erro porque ele na verdade não é - ele só não funciona porque a condição inicial para parar (<code>inicio</code> &gt; <code>fim</code>) é verdadeira.</p>
+        </blockquote>
+        <p>Existe uma técnica para aplicar a estrutura <code>para</code> em forma decrescente: <strong>definir o passo para um número menor que 1</strong>. Observe o exemplo:</p>
+        <ul>
+        <li>Código (sem erro):<pre><code class="c hljs">algoritmo <span class="token string">"teste-com-para"</span>
+        var j <span class="token punctuation">:</span> inteiro
+        para j de <span class="token number">10</span> ate <span class="token number">0</span> passo <span class="token operator">-</span><span class="token number">1</span> faca
+        	<span class="token function">escreva</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span>
+        fimfaca
+        </code></pre>
+        </li>
+        <li>Saída:<pre><code>10 9 8 7 6 5 4 3 2 1
+        </code></pre>
+        </li>
+        </ul>
+        <p>Agora o código está funcionando, justamente porque, com o passo negativo, a condição para parar passa a ser <code>inicio</code> &lt; <code>fim</code>.</p>
+         <!-- @!bloco_composto -->
+        </li>
+        </ol><hr><h3 id="Estrutura-enquanto">Estrutura <code>enquanto</code></h3><p>A estrutura <code>enquanto</code> funciona de forma similar à estrutura <code>repita</code>, mas neste caso, o teste que verifica se vai repitir está no início:</p><pre><code class="c hljs">enquanto <span class="token operator">&lt;</span>condição<span class="token operator">&gt;</span> faça
+            <span class="token operator">&lt;</span>código<span class="token operator">&gt;</span>
+        fimenquanto
+        </code></pre><p>O VisuAlg faz o seguinte com a estrutura <code>enquanto</code>:</p><ol>
+        <li>
+        <p>Roda <code>&lt;condição&gt;</code>; se o resultado for verdadeiro, continua.</p>
+        </li>
+        <li>
+        <p>Roda <code>&lt;código&gt;</code>.</p>
+        </li>
+        <li>
+        <p>Ao chegar no final, volta para o passo 1.</p>
+        </li>
+        </ol><p>O funcionamento do <code>enquanto</code> é muito mais simples. Vejamos agora um exemplo para contar os números pares de 0 a 10.</p><pre><code class="c hljs">algoritmo <span class="token string">"1-10-enquanto"</span>
+            var j<span class="token punctuation">:</span> inteiro
+            inicio
+                j <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>
+                enquanto <span class="token punctuation">(</span>j <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">)</span> faca
+                    se <span class="token punctuation">(</span><span class="token punctuation">(</span>j <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span> entao
+                        <span class="token function">escreva</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span>
+                    fimse
+                    j <span class="token punctuation">:</span><span class="token operator">=</span> j <span class="token operator">+</span> <span class="token number">1</span>
+                fimenquanto
+        fimalgoritmo
+        </code></pre><p>Esta estrutura pode ser mais complicada para contar de um número a outro, e ela é recomendada para outras situações. Veja aqui um outro programa em que ela se pode se encaixar também:</p><pre><code class="c hljs">algoritmo <span class="token string">"rodando-sempre"</span>
+            var
+            inicio
+                enquanto <span class="token punctuation">(</span>verdadeiro<span class="token punctuation">)</span> faca
+                    <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"texto."</span><span class="token punctuation">)</span>
+                fimenquanto
+        fimalgoritmo
+        </code></pre><p>Neste caso, o resultado vai ser uma tela cheia de <code>texto.</code>, já que a condição do enquanto é sempre verdadeira. O programa vai ficar rodando para sempre, até que você feche ele forçadamente.</p><h3 id="Estrutura-repita">Estrutura <code>repita</code></h3><p>Uma outra estrutura de repetição muito interessante é a <code>repita</code>, já que ela só começa a fazer o teste <code>&lt;condição&gt;</code> depois que rodou <code>&lt;código&gt;</code> uma vez. Vejamos como funciona a estrutura:</p><pre><code>repita
+            &lt;código&gt;
+        ate &lt;condição&gt;
+        </code></pre><p>Aqui os passos que o VisuAlg recebe quando ele encontra essa estrutura:</p><ol>
+        <li>
+        <p>Roda o <code>&lt;código&gt;</code></p>
+        </li>
+        <li>
+        <p>Se <code>&lt;condição&gt;</code> for verdadeiro, para.</p>
+        </li>
+        <li>
+        <p>Se <code>&lt;condição&gt;</code> for falso, volta para o passo 1.</p>
+        </li>
+        </ol><p>Isso pode ser útil em programas como este:</p><pre><code class="c hljs">algoritmo <span class="token string">"digite-senha"</span>
+            var senha<span class="token punctuation">,</span> tentativa<span class="token punctuation">:</span> caractere
+            inicio
+                repita
+                    <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Digite a senha: "</span><span class="token punctuation">)</span>
+                    <span class="token function">leia</span><span class="token punctuation">(</span>tentativa<span class="token punctuation">)</span>
+                ate <span class="token punctuation">(</span>senha <span class="token operator">=</span> tentativa<span class="token punctuation">)</span>
+        fimalgoritmo
+        </code></pre><p>Neste programa, logo no início já é pedido para o usuário digitar a senha, e a verificação para parar o programa só chega no final.</p><h3 id="Estrutura-escolha-usando-caso">Estrutura <code>escolha</code> (usando <code>caso</code>)</h3><p>A estrutura <code>escolha</code> é uma solução interessante para situações em que se utiliza muitos <code>senão</code>-<code>se</code>. Ela é formada deste jeito:</p><pre><code class="c hljs">escolha <span class="token operator">&lt;</span>variável<span class="token operator">&gt;</span>
+        caso <span class="token operator">&lt;</span>caso1<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>código1<span class="token operator">&gt;</span>
+        caso <span class="token operator">&lt;</span>caso2<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>código2<span class="token operator">&gt;</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+        outrocaso
+            <span class="token operator">&lt;</span>outrocódigo<span class="token operator">&gt;</span>
+        fimescolha
+        </code></pre><p>Nesta estrutura, o VisuAlg executa os seguintes passos:</p><ol>
+        <li>
+        <p>Pega o valor de <code>&lt;variável&gt;</code>.</p>
+        </li>
+        <li>
+        <p>Vai passando de caso em caso.</p>
+        <p>2.1. Se <code>&lt;variável&gt; = &lt;casoX&gt;</code>, roda o <code>&lt;códigoX&gt;</code>.</p>
+        </li>
+        <li>
+        <p>Se nenhum dos casos tiver funcionado, roda <code>&lt;outrocódigo&gt;</code>.</p>
+        </li>
+        </ol><p>Vejamos um exemplo:</p><pre><code class="c hljs">algoritmo <span class="token string">"escolha-nome"</span>
+            var entrada<span class="token punctuation">:</span> caractere
+            inicio
+                <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Digite um nome: "</span><span class="token punctuation">)</span>
+                <span class="token function">leia</span><span class="token punctuation">(</span>entrada<span class="token punctuation">)</span>
+                escolha entrada
+                caso <span class="token string">"Ana"</span>
+                    <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Te conheço!"</span><span class="token punctuation">)</span>
+                caso <span class="token string">"Ítalo"</span>
+                    <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Te conheço!"</span><span class="token punctuation">)</span>
+                outrocaso
+                    <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Não te conheço..."</span><span class="token punctuation">)</span>
+                fimescolha
+        fimalgoritmo
+        </code></pre><p>Neste exemplo, o computador pediu para o usuário digitar um nome, e se ele fosse “Ana” ou “Ítalo” ele iria responder que conhece; em outros casos, responderia que não conhece.</p><p>Há uma maneira de melhorar ainda mais esse algoritmo, já que para “Ana” e “Ítalo” acontece a mesma coisa:</p><pre><code class="c hljs">algoritmo <span class="token string">"escolha-nome"</span>
+            var entrada<span class="token punctuation">:</span> caractere
+            inicio
+                <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Digite um nome: "</span><span class="token punctuation">)</span>
+                <span class="token function">leia</span><span class="token punctuation">(</span>entrada<span class="token punctuation">)</span>
+                escolha entrada
+                caso <span class="token string">"Ana"</span><span class="token punctuation">,</span> <span class="token string">"Ítalo"</span>
+                    <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Te conheço!"</span><span class="token punctuation">)</span>
+                outrocaso
+                    <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Não te conheço..."</span><span class="token punctuation">)</span>
+                fimescolha
+        fimalgoritmo
+        </code></pre><p>Ao fazer isso, o VisuAlg irá ler a linha <code>caso "Ana", "Ítalo"</code> e ver se <code>entrada</code> é igual a um deles.</p><p>Também temos outros exemplos, com números:</p><pre><code class="c hljs">algoritmo <span class="token string">"escolha-nome"</span>
+            var x<span class="token punctuation">:</span> inteiro
+            inicio
+                <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Digite um número: "</span><span class="token punctuation">)</span>
+                <span class="token function">leia</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+                escolha x
+                caso <span class="token number">0</span>
+                    <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Nada."</span><span class="token punctuation">)</span>
+                caso <span class="token number">1</span>
+                    <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Um pouco."</span><span class="token punctuation">)</span>
+                caso <span class="token number">2</span> ate <span class="token number">10</span>
+                    <span class="token function">escreva</span><span class="token punctuation">(</span><span class="token string">"Um pouco, mas não tanto quanto 1."</span><span class="token punctuation">)</span>
+                fimescolha
+        fimalgoritmo
+        </code></pre><p>Neste caso, utilizando números, podemos verificar se <code>x</code> é igual ao número ou se ele está em um intervalo (como em <code>2 ate 10</code>).</p><hr><h2 id="A-Fazer">A Fazer</h2><ul>
+        <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled"><label></label>Adicionar mais exemplos
+        <ul>
+        <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled"><label></label>10 ate 20, 20 ate 30 (20 repitindo)</li>
+        </ul>
+        </li>
+        </ul></div>
+    </body>
+</html>
